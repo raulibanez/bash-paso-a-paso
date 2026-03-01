@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca de Ejercicios - Scripting en Bash</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f5f5;
+    padding: 24px;
+    color: #1a1a1a;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .header {
+    background: #1e3a5f;
+    color: white;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+  .header .subtitle { font-size: 14px; opacity: 0.8; }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-left: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    color: white;
+  }
+  .badge-green { background: #4CAF50; }
+  .badge-orange { background: #FF9800; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 18px;
+    border-left: 5px solid;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+
+  .card.resuelto { border-color: #4CAF50; }
+  .card.propuesto { border-color: #FF9800; }
+
+  .card .card-number {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .card.resuelto .card-number { color: #2E7D32; }
+  .card.propuesto .card-number { color: #E65100; }
+
+  .card .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .card .card-concepts {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.4;
+  }
+
+  .card .card-concepts code {
+    background: #f0f0f0;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+  }
+
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+  }
+
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: white; padding: 12px; }
+    .card { box-shadow: none; border: 1px solid #ddd; }
+    .card:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Biblioteca de Ejercicios — Scripting en Bash</h1>
+  <div class="subtitle">20 ejercicios con dificultad progresiva · Desde lo más básico hasta bucles y condiciones</div>
+</div>
+
+
+<div class="section-title">Ejercicios Resueltos <span class="badge badge-green">Con solución</span></div>
+
+<div class="cards-grid">
+  <a class="card resuelto" href="resueltos/01-hola-mundo.html">
+    <div class="card-number">Ejercicio R01</div>
+    <div class="card-title">Hola Mundo</div>
+    <div class="card-concepts"><code>#!/bin/bash</code> · <code>echo</code> · <code>chmod</code></div>
+  </a>
+  <a class="card resuelto" href="resueltos/02-variables-entorno.html">
+    <div class="card-number">Ejercicio R02</div>
+    <div class="card-title">Variables del entorno</div>
+    <div class="card-concepts"><code>$USER</code> · <code>$HOME</code> · <code>$PWD</code> · <code>$SHELL</code></div>
+  </a>
+  <a class="card resuelto" href="resueltos/03-echo-formateado.html">
+    <div class="card-number">Ejercicio R03</div>
+    <div class="card-title">Echo con formato</div>
+    <div class="card-concepts"><code>echo -e</code> · <code>\n</code> · <code>\t</code> · <code>echo -n</code></div>
+  </a>
+  <a class="card resuelto" href="resueltos/04-argumentos.html">
+    <div class="card-number">Ejercicio R04</div>
+    <div class="card-title">Argumentos posicionales</div>
+    <div class="card-concepts"><code>$0</code> · <code>$1</code> · <code>$2</code> · <code>$#</code></div>
+  </a>
+  <a class="card resuelto" href="resueltos/05-lectura-read.html">
+    <div class="card-number">Ejercicio R05</div>
+    <div class="card-title">Lectura con read</div>
+    <div class="card-concepts"><code>read</code> · variables propias · <code>echo</code></div>
+  </a>
+  <a class="card resuelto" href="resueltos/06-if-simple.html">
+    <div class="card-number">Ejercicio R06</div>
+    <div class="card-title">if-then-fi</div>
+    <div class="card-concepts"><code>if</code> · <code>[ ]</code> · <code>-ge</code></div>
+  </a>
+  <a class="card resuelto" href="resueltos/07-if-else.html">
+    <div class="card-number">Ejercicio R07</div>
+    <div class="card-title">if-then-else-fi</div>
+    <div class="card-concepts"><code>if-else</code> · comparación numérica</div>
+  </a>
+  <a class="card resuelto" href="resueltos/08-if-elif.html">
+    <div class="card-number">Ejercicio R08</div>
+    <div class="card-title">if-elif encadenado</div>
+    <div class="card-concepts"><code>if-elif-else</code> · <code>-ge</code> · <code>-lt</code></div>
+  </a>
+  <a class="card resuelto" href="resueltos/09-for.html">
+    <div class="card-number">Ejercicio R09</div>
+    <div class="card-title">for-in-do-done</div>
+    <div class="card-concepts"><code>for</code> · lista de elementos · <code>do-done</code></div>
+  </a>
+  <a class="card resuelto" href="resueltos/10-while.html">
+    <div class="card-number">Ejercicio R10</div>
+    <div class="card-title">while-do-done</div>
+    <div class="card-concepts"><code>while</code> · contador · decremento</div>
+  </a>
+</div>
+
+<div class="section-title">Ejercicios Propuestos <span class="badge badge-orange">Sin solución</span></div>
+
+<div class="cards-grid">
+  <a class="card propuesto" href="propuestos/01-bienvenida.html">
+    <div class="card-number">Ejercicio P01</div>
+    <div class="card-title">Mensaje de bienvenida</div>
+    <div class="card-concepts"><code>echo</code> · shebang · ejecución básica</div>
+  </a>
+  <a class="card propuesto" href="propuestos/02-info-sistema.html">
+    <div class="card-number">Ejercicio P02</div>
+    <div class="card-title">Información del sistema</div>
+    <div class="card-concepts"><code>$HOSTNAME</code> · <code>$LOGNAME</code> · <code>$TERM</code></div>
+  </a>
+  <a class="card propuesto" href="propuestos/03-tabla-formateada.html">
+    <div class="card-number">Ejercicio P03</div>
+    <div class="card-title">Lista de la compra formateada</div>
+    <div class="card-concepts"><code>echo -e</code> · <code>\t</code> · <code>\n</code></div>
+  </a>
+  <a class="card propuesto" href="propuestos/04-tres-argumentos.html">
+    <div class="card-number">Ejercicio P04</div>
+    <div class="card-title">Tres argumentos</div>
+    <div class="card-concepts"><code>$1</code> · <code>$2</code> · <code>$3</code> · <code>$#</code> · <code>$*</code></div>
+  </a>
+  <a class="card propuesto" href="propuestos/05-read-ciudad.html">
+    <div class="card-number">Ejercicio P05</div>
+    <div class="card-title">Ciudad y país con read</div>
+    <div class="card-concepts"><code>read</code> · variables · <code>echo</code></div>
+  </a>
+  <a class="card propuesto" href="propuestos/06-existe-archivo.html">
+    <div class="card-number">Ejercicio P06</div>
+    <div class="card-title">¿Existe el archivo?</div>
+    <div class="card-concepts"><code>if</code> · <code>-f</code> · <code>$1</code></div>
+  </a>
+  <a class="card propuesto" href="propuestos/07-par-impar.html">
+    <div class="card-number">Ejercicio P07</div>
+    <div class="card-title">Par o impar</div>
+    <div class="card-concepts"><code>if-else</code> · <code>$(( % ))</code> · <code>read</code></div>
+  </a>
+  <a class="card propuesto" href="propuestos/08-case-semana.html">
+    <div class="card-number">Ejercicio P08</div>
+    <div class="card-title">Frase del día</div>
+    <div class="card-concepts"><code>case-in-esac</code> · patrones · <code>*)</code></div>
+  </a>
+  <a class="card propuesto" href="propuestos/09-for-colores.html">
+    <div class="card-number">Ejercicio P09</div>
+    <div class="card-title">Colores del arcoíris</div>
+    <div class="card-concepts"><code>for-in</code> · contador · <code>$(( ))</code></div>
+  </a>
+  <a class="card propuesto" href="propuestos/10-adivina-numero.html">
+    <div class="card-number">Ejercicio P10</div>
+    <div class="card-title">Adivina el número</div>
+    <div class="card-concepts"><code>while</code> · <code>$RANDOM</code> · <code>read</code></div>
+  </a>
+</div>
+
+<div class="footer">
+  Ejercicios de Scripting en Bash
+</div>
+
+
+</body>
+</html>
